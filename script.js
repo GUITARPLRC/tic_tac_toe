@@ -50,13 +50,6 @@ document.ready = function() {
 			}
 		}
 		
-		if (xWin === 6 || xWin === 12 || xWin === 15 || xWin === 18) {
-			console.log("X Wins") ;
-		}
-		
-		if (oWin === 6 || oWin === 12 || oWin === 15 || oWin === 18) {
-			console.log("X Wins") ;
-		}
 		
 		
 	}
