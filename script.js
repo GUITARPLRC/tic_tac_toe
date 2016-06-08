@@ -2,7 +2,7 @@ var square = document.getElementsByClassName("square"),
     restart = document.getElementById("restart"),
     win = [7, 56, 73, 84, 146, 273, 292, 448], //winning score check
     user = 0; //user score
-    comp = 0; //comp score
+    comp = 0; //computer score
 
 for (var i = 0; i < square.length; i++) {
   square[i].addEventListener("click", nextMove, false);
@@ -17,15 +17,18 @@ function nextMove() {
   }
   
   checkWin();
-  compMove();
+  
+  if (!checkWin()) { // check if computer have a turn
+    compMove();
+  }
   
 }
 
 function compMove() {
   
-  var randNum = Math.floor((Math.random() * 9)); // 0 - 8 for square array index
+  var randNum = Math.floor(Math.random() * 9); // 0 - 8 for square array index
   
-  if (square[randNum] === "") {
+  if (square[randNum].textContent === "") {
     
     switch(randNum) {
       
@@ -68,6 +71,10 @@ function compMove() {
       
     }
     
+  } else {
+    
+    compMove();
+    
   }
   
   checkWin();
@@ -77,13 +84,32 @@ function compMove() {
 function checkWin() {
   
   for (var i = 0; i < win.length; i++) {
-    if (user === win[i]) {
+    if ((user & win[i]) === win[i]) {
       //user wins
       console.log("user wins");
-    } else if (comp === win[i]) {
+      disableClick();
+      return true;
+    } else if ((comp & win[i]) === win[i]) {
       //comp wins
       console.log("comp wins");
+      disableClick();
+      return true;
     }
+  }
+  return false;
+}
+
+function disableClick() {
+  
+  for (var i = 0; i < square.length; i++) {
+    square[i].style.pointerEvents = "none";
+  }
+  
+}
+function enableClick() {
+  
+  for (var i = 0; i < square.length; i++) {
+    square[i].style.pointerEvents = "auto";
   }
   
 }
@@ -95,5 +121,6 @@ function startOver() {
   }
   user = 0;
   comp = 0;
+  enableClick();
   
 }
