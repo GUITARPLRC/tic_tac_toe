@@ -3,13 +3,34 @@
 	padding:0;
 	text-align:center;
 }
+html {
+  font-family: 'Open Sans', sans-serif;
+  background-image:url("sprint.jpg");
+  background-size:cover;
+  background-repeat:no repeat;
+}
+
+.main {
+  max-width:500px;
+  margin:30px auto 0 auto;
+  background-color:rgba(0,0,0,0.5);
+  padding:15px 0;
+  border-radius:10%;
+}
 
 h1 {
-	margin-top:30px;
+	margin-top:20px;
+  color:#fff;
+  font-size:40px;
+}
+h3 {
+  color:#fff;
+  margin-top:5px;
+  font-size:24px;
 }
 
 #board {
-	margin-top:75px;
+	margin-top:50px;
 	display:inline-block;
 	box-shadow:0px 0px 20px #c9c9c9;
   height:330px;
@@ -44,6 +65,15 @@ h1 {
 
 .square:hover {
 	background-color:#e9e9e9;
+}
+
+h4 {
+  margin-top:20px;
+  color:#fff;
+}
+
+input[type="radio"] {
+  color:#fff;
 }
 
 button {

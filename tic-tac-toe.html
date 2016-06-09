@@ -3,34 +3,45 @@
 	<head>
 	
 		<title>Tic-Tac-Toe</title>
+    
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="style.css">
+    
 	
 	</head>
 	<body>
 	
-		<h1>Tic-Tac-Toe</h1>
-		
-		<div id="board">
-			<div id="row1">
-				<div class="square" value=1></div>
-				<div class="square" value=2></div>
-				<div class="square" value=4></div>
-			</div>
-			<div id="row2">
-				<div class="square" value=8></div>
-				<div class="square" value=16></div>
-				<div class="square" value=32></div>
-			</div>
-			<div id="row3">
-				<div class="square" value=64></div>
-				<div class="square" value=128></div>
-				<div class="square" value=256></div>
-			</div>
-		</div>
-		
-		<br />
-		
-		<button id="restart">Start Over</button>
+    <section class="main">
+      <h1>Tic-Tac-Toe</h1>
+      <h3 id="message"> </h3>
+      <div id="board">
+        <div id="row1">
+          <div class="square" value=1></div>
+          <div class="square" value=2></div>
+          <div class="square" value=4></div>
+        </div>
+        <div id="row2">
+          <div class="square" value=8></div>
+          <div class="square" value=16></div>
+          <div class="square" value=32></div>
+        </div>
+        <div id="row3">
+          <div class="square" value=64></div>
+          <div class="square" value=128></div>
+          <div class="square" value=256></div>
+        </div>
+      </div>
+      
+      <br>
+      
+      <h4>CHOOSE YOUR WEAPON</h4>
+      <input type="radio" name="weapon" value="X" checked>X</input>
+      <input type="radio" name="weapon" value="O">O</input>
+      <br>
+      
+      <button id="start">Begin Your Quest</button>
+      <button id="restart">Start Over</button>
+    </section>
 		
 		<script src="script.js"></script>
 		
