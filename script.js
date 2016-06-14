@@ -5,7 +5,6 @@ var square = document.getElementsByClassName("square"),
     win = [7, 56, 73, 84, 146, 273, 292, 448], //winning score check
     user = 0, //user score
     comp = 0, //computer score
-    count = 0, //check if tie
     weapons = document.getElementsByName("weapon"),
     userWeapon = "X",
     compWeapon = "O";
@@ -43,19 +42,18 @@ function checkWeapon() {
 
 function nextMove() {
   
-  if (this.textContent === "") {
+  while (this.textContent === "") {
     
     this.textContent = userWeapon;
     user += parseInt(this.getAttribute("value"));
-    count++;
     
-  }
+    checkWin();
   
-  checkWin();
-  
-  if (checkWin() == false) { // check if computer needs a turn
-  
-    compMove();
+    if (checkWin() == false) { // check if computer needs a turn
+    
+      compMove();
+      
+    }
     
   }
   
@@ -108,8 +106,6 @@ function compMove() {
       
     }
     
-    count++;
-    
   } else {
     
     compMove();
@@ -121,6 +117,8 @@ function compMove() {
 };
 
 function checkWin() {
+  
+  var count = 0;
   
   for (var i = 0; i < win.length; i++) {
     
@@ -137,6 +135,24 @@ function checkWin() {
       return true;
       
     }
+  }
+  
+  for (var j = 0; j < square.length; j++) {
+    
+    if (square[j].textContent === "X" || square[j].textContent === "O") {
+      
+      count++;
+      
+    }
+    
+  }
+  
+  if (count === 9) {
+    
+    message.textContent = "Neither warrior has been defeated";
+    disableClick();
+    return true;
+    
   }
   
   return false;
@@ -174,6 +190,5 @@ function startOver() {
   restart.disabled = true;
   start.disabled = false;
   message.textContent = "";
-  count = 0;
   
 }
