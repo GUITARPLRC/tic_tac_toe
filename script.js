@@ -9,7 +9,7 @@ var square = document.getElementsByClassName("square"),
     userWeapon = "X",
     compWeapon = "O";
 
-for (var i = 0; i < square.length; i++) {     //  check which square is clicked
+for (var i = 0; i < square.length; i++) {
   
   square[i].addEventListener("click", nextMove, false);
   
@@ -17,11 +17,10 @@ for (var i = 0; i < square.length; i++) {     //  check which square is clicked
 
 start.addEventListener("click", checkWeapon, false);
 restart.addEventListener("click", startOver, false);
+restart.disabled = true;
+disableClick();
 
-restart.disabled = true; //  disable restart button
-disableClick();   // disable square click until start game
-
-function checkWeapon() {  //  check which weapon chosen
+function checkWeapon() {
   
   if (weapons[1].checked) {
     
